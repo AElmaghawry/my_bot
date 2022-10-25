@@ -1,7 +1,81 @@
-## Robot Package Template
+## Indoor Robot Simulation Environment 
 
-This is a GitHub template. You can make your own copy by clicking the green "Use this template" button.
+This repo is to simulate the Indoor robot using Diff drive plug-in for Gazebo
+The description file include multiple Macros for each of the following: 
 
-It is recommended that you keep the repo/package name the same, but if you do change it, ensure you do a "Find all" using your IDE (or the built-in GitHub IDE by hitting the `.` key) and rename all instances of `my_bot` to whatever your project's name is.
+1- Gazebo Control  
+2- Robot description  
+3- Inertial Macros  
 
-Note that each directory currently has at least one file in it to ensure that git tracks the files (and, consequently, that a fresh clone has direcctories present for CMake to find). These example files can be removed if required (and the directories can be removed if `CMakeLists.txt` is adjusted accordingly).
+---
+
+The Environment have been created and was been saved as .world file 
+
+---
+#### Git Clone Repo
+open terminal and create your workspace
+
+```
+mkdir dev_ws
+cd dev_ws 
+mkdir src
+```
+then after that git clone the repo 
+```
+git clone https://github.com/AElmaghawry/my_bot.git
+```
+---
+#### Build Repo 
+before your build make sure that your in the workspace 
+```
+cd ~/dev_ws/
+```
+
+build your project 
+
+```
+colcon build 
+```
+
+after that source the workspace 
+```
+. install/setup.bash
+```
+---
+
+#### Launch Simulation 
+
+open up 3 terminals
+
+1. RVIZ terminal 
+
+> If you want to launch RVIZ without any predefined configuration   
+```
+rviz2 
+```
+> if you created your own world you can call it as follows:
+```
+rviz2 -d src/my_bot/config/view_bot2.rviz
+```
+
+2. RUN Gazebo
+
+>if you want to run the robot in empty environment 
+~~~
+ros2 (the Name of the package) (launch file)
+~~~
+type in as follow: 
+
+```
+ros2 launch my_bot launch_sim.launch.py  
+```
+>if you have your own saved world file you can type: 
+
+```
+ros2 launch my_bot launch_sim.launch.py world:=./src/my_bot/worlds/obstecales.world 
+```
+3. Use Teleop Commands to control the robot 
+
+```
+ros2 run teleop_twist_keyboard teleop_twist_keyboard
+```
