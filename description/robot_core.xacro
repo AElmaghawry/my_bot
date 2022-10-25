@@ -61,6 +61,10 @@
     
     </link>
 
+    <gazebo reference="chassis">
+        <material>Gazebo/White</material>
+    </gazebo>
+
     <!-- LEFT WHEEL LINK -->
 
     <joint name="left_wheel_joint" type="continuous">
@@ -93,6 +97,10 @@
             
 
     </link>
+    <gazebo reference="left_wheel">
+        <material>Gazebo/Blue</material>
+    </gazebo>
+
 
     <!-- RIGHT WHEEL LINK -->
 
@@ -122,6 +130,9 @@
         </xacro:inertial_cylinder>
     </link>    
 
+    <gazebo reference="right_wheel">
+        <material>Gazebo/Blue</material>
+    </gazebo>
 
     <!-- CASTER WHEEL LINK -->
 
@@ -149,4 +160,10 @@
         </xacro:inertial_sphere>
 
     </link>
+    <gazebo reference="caster_wheel">
+            <material>Gazebo/Black</material>
+            <mu1 value="0.001"/>
+            <mu2 value="0.001"/>
+    </gazebo>
+
 </robot>
