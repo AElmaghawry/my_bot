@@ -9,10 +9,12 @@
 
     <!-- <xacro:include filename="camera.xacro"/> -->
 
-    <xacro:include filename="depth_camera.xacro"/>
+    <!-- <xacro:include filename="depth_camera.xacro"/> -->
 
     <xacro:include filename="imu.xacro"/>
 
     <xacro:include filename="ultrasonic.xacro"/>
     
+    <xacro:include filename="ir_sensor.xacro"/>
+
 </robot>
