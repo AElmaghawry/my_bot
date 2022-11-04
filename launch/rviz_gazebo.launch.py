@@ -16,7 +16,6 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
 
-    world_file_name = 'basic_mobile_bot_world/smalltown.world'
 
     # Include the robot_state_publisher launch file, provided by our own package. Force sim time to be enabled
     # !!! MAKE SURE YOU SET THE PACKAGE NAME CORRECTLY !!!
@@ -24,9 +23,7 @@ def generate_launch_description():
     package_name='my_bot' #<--- CHANGE ME
     pkg_share = FindPackageShare(package='my_bot').find('my_bot')
     default_rviz_config_path = os.path.join(pkg_share, 'config/view_bot2.rviz')
-    world_path = os.path.join(pkg_share, 'worlds', world_file_name)
-    world = LaunchConfiguration('world')
-
+   
     rsp = IncludeLaunchDescription(
                 PythonLaunchDescriptionSource([os.path.join(
                     get_package_share_directory(package_name),'launch','rsp.launch.py'
@@ -58,7 +55,7 @@ def generate_launch_description():
     
     declare_world_cmd = DeclareLaunchArgument(
     name='world',
-    default_value=world_path,
+   
     description='Full path to the world model file to load')
     rviz_config_file = LaunchConfiguration('rviz_config_file')
 
